@@ -4,6 +4,8 @@ import logo from '../../assets/images/logo.png';
 
 import { Container, Form } from './styles';
 
+import CompareList from '../../components/CompareList';
+
 const Main = () => (
   <Container>
     <img src={logo} alt="Github Compare" />
@@ -12,6 +14,8 @@ const Main = () => (
       <input placeholder="usuário/repositório" />
       <button type="submit">OK</button>
     </Form>
+
+    <CompareList />
   </Container>
 );
 
