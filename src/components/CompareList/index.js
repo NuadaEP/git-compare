@@ -5,7 +5,7 @@ import { Container, Repository } from './styles';
 const CompareList = ({ respositories }) => (
   <Container>
     {respositories.map(repository => (
-      <Repository>
+      <Repository id={repository.id}>
         <header>
           <img src={repository.owner.avatar_url} alt={repository.owner.login} />
           <strong>{repository.name}</strong>
