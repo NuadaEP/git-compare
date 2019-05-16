@@ -6,7 +6,7 @@ import { Container, Repository } from './styles';
 const CompareList = ({ respositories }) => (
   <Container>
     {respositories.map(repository => (
-      <Repository id={repository.id}>
+      <Repository key={repository.id}>
         <header>
           <img src={repository.owner.avatar_url} alt={repository.owner.login} />
           <strong>{repository.name}</strong>
@@ -24,7 +24,7 @@ const CompareList = ({ respositories }) => (
             {repository.open_issues_count} <small>issues</small>
           </li>
           <li>
-            {repository.pushed_at} <small>last commit</small>
+            {repository.lastCommit} <small>last commit</small>
           </li>
         </ul>
       </Repository>
