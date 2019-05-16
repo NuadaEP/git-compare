@@ -18,10 +18,10 @@ export const Form = styled.form`
     height: 55px;
     padding: 0 20px;
     background: #fff;
-    border: 0;
     font-size: 18px;
     color: #444;
     border-radius: 3px;
+    border: ${({ withError }) => (withError ? '2px solid red' : 0)};
   }
 
   button {
