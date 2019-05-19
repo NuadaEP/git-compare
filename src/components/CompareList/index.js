@@ -3,6 +3,23 @@ import PropTypes from 'prop-types';
 
 import { Container, Repository } from './styles';
 
+const removeRepository = (repositoryId) => {
+  const storageRepositories = JSON.parse(localStorage.repositoriesStorage);
+
+  const findRepository = storageRepositories.map((storageRepository, index) => {
+    if (storageRepository.id === repositoryId) return index;
+  });
+
+  console.log(findRepository);
+};
+
+// const findRepository = (element, repositoryId) => {
+//   if (element.id == repositoryId) {
+//     return true;
+//   }
+//   return false;
+// };
+
 const CompareList = ({ respositories }) => (
   <Container>
     {respositories.map(repository => (
@@ -12,6 +29,8 @@ const CompareList = ({ respositories }) => (
           <strong>{repository.name}</strong>
           <small>{repository.owner.login}</small>
         </header>
+
+        <button onClick={() => removeRepository(repository.id)}>DELETAR</button>
 
         <ul>
           <li>

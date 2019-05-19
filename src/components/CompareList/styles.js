@@ -36,6 +36,23 @@ export const Repository = styled.div`
     }
   }
 
+  button {
+    width: 100%;
+    background: #ed3838;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+      background: #ed2a2a;
+    }
+  }
+
   ul {
     list-style: none;
 
