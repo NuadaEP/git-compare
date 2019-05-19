@@ -16,6 +16,10 @@ export default class Main extends Component {
     respositories: [],
   };
 
+  componentWillMount() {
+    this.setState({ respositories: JSON.parse(localStorage.repositoriesStorage) });
+  }
+
   handleAddRepository = async (event) => {
     event.preventDefault();
 
@@ -26,13 +30,15 @@ export default class Main extends Component {
 
       repository.lastCommit = moment(repository.pushed_at).fromNow();
 
-      console.log(repository);
-
       this.setState({
         repositoryInput: '',
         respositories: [...this.state.respositories, repository],
         repositoryError: false,
       });
+
+      if (localStorage.repositoriesStorage) {
+        localStorage.setItem('repositoriesStorage', JSON.stringify(this.state.respositories));
+      }
     } catch (err) {
       this.setState({ repositoryError: true });
     } finally {
@@ -46,6 +52,9 @@ export default class Main extends Component {
         <img src={logo} alt="Github Compare" />
 
         <Form onSubmit={this.handleAddRepository} withError={this.state.repositoryError}>
+          {/* <label>
+              <input type="checkbox"
+          </label> */}
           <input
             placeholder="usuário/repositório"
             value={this.state.repositoryInput}
